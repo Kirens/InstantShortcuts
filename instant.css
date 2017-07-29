@@ -1,0 +1,10 @@
+.keyboard-link { position: relative !important }
+#keybord-pointer {
+    color: #4273db;
+    display: inline;
+    font: 11px arial,sans-serif !important;
+    left: -13px;
+    position: absolute;
+    top: 2px;
+    z-index: 2;
+}
