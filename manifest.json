@@ -1,9 +1,8 @@
 {
     "manifest_version": 2,
-    "name": "Instant search shortcut",
+    "name": "Instant search keyboard shortcut",
     "description": "Restores some of the keyboard shortcuts available in instant search",
     "version": "0.1.0",
-  //"default_locale": "en",
     "author": "Kirens",
     "icons": {
         "16":  "res/icon16.png",
@@ -14,7 +13,10 @@
 
     "content_scripts": [
         {
-            "matches":["*://www.google.se/search*"],
+            "matches":[
+                "*://www.google.com/search*",
+                "*://www.google.se/search*"
+            ],
             "js": ["instant.js"],
             "css": ["instant.css"],
             "run_at": "document_start"
