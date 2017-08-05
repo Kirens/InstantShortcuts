@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Instant search keyboard shortcut",
     "description": "Restores some of the keyboard shortcuts available in instant search",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "author": "Kirens",
     "icons": {
         "16":  "res/icon16.png",

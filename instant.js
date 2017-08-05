@@ -42,6 +42,8 @@ var createPointer = function(){
 };
 
 var stepSelect = function(direction, base) {
+    direction = +direction || 0;
+
     if(document.getElementById("center_col").parentNode.classList.contains("fade")) return;
 
     var links = [];
@@ -64,15 +66,18 @@ var stepSelect = function(direction, base) {
     });
     var lastActive = findClassEl(document.activeElement, lnkCls) || findClassEl(fromId(ptrCls), lnkCls);
     var i = +base || 0;
-    if (typeof base == 'undefined' && lastActive) i = Math.max(0, links.indexOf(lastActive) + direction);
+    if (typeof base == 'undefined' && lastActive) i = links.indexOf(lastActive) + direction;
 
+    // Find the next valid link in given direction
     while (0 <= i && i < links.length) {
         let lnkEl = getLinkEl(links[i]);
         if (links[i].offsetHeight > 0
             && getStyle(lnkEl, 'visibility') != 'hidden'
             && findClassEl(lnkEl, lnkCls) == links[i]) break;
-        i += direction;
+        i += direction || 1;
     }
+
+    // If valid link was found, create or move pointer
     if (links[i]) {
         let pointer = fromId(ptrCls) || createPointer();
         pointer.style.paddingTop = getStyle(links[i], "padding-top");
